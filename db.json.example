@@ -1,0 +1,15 @@
+{
+    "users": {
+        "3118401337": {
+            "username": "user-name",
+            "access_token": "000000-XXXXXXXXXXXXXX",
+            "access_token_secret": "XXXXXXXXXXXXX",
+            "copies": {
+                "1422791918275104768": {
+                    "copy_probability": 0.8,
+                    "last_copy_tweeted_at": 1629354783
+                }
+            }
+        }
+    }
+}
