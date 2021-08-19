@@ -22,6 +22,11 @@ def signup():
 	else:
 		print('sign up error.')
 
+def post_tweet(api, text):
+	try:
+		api.update_status(status=text)
+	except Exception as e:
+		print(e)
 
 def loop():
 	global app, db
@@ -39,8 +44,7 @@ def loop():
 						if tweet_time_gmt > most_recent_tweet_time_gmt:
 							most_recent_tweet_time_gmt = tweet_time_gmt
 						if rand() < target['copy_probability']: #selection based on given probablity
-							api.update_status(status=tweet.full_text)
-							print(tweet.full_text)
+							post_tweet(api, tweet.full_text)
 			db['users'][id]['copies'][target_id]['last_copy_tweeted_at'] = most_recent_tweet_time_gmt
 	database.write(db)
 
@@ -49,11 +53,13 @@ if argv[0] == '--signup':
 	signup()
 	exit(0)
 
-try:
-	loop()
-	time.sleep(sleep_time)
-except Exception as e:
-	print(e)
+
+while True:
+	try:
+		loop()
+		time.sleep(sleep_time)
+	except Exception as e:
+		print(e)
 
 
 
