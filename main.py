@@ -48,8 +48,7 @@ def loop():
 			db['users'][id]['copies'][target_id]['last_copy_tweeted_at'] = most_recent_tweet_time_gmt
 	database.write(db)
 
-
-if argv[0] == '--signup':
+if '--signup' in argv:
 	signup()
 	exit(0)
 

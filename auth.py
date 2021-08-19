@@ -20,7 +20,7 @@ def sign_up(app, API, users):
             'username': user.screen_name,
             'access_token': access_token,
             'access_token_secret': access_token_secret,
-            'copies': {}
+            'copies': users[user.id_str]['copies'] if user.id_str in users else {}
         }
     })
     return api, users
