@@ -1,6 +1,0 @@
-# Twitter Config
-
-API_KEY = 'XXXXXXXXXXXXX'
-API_SECRET_KEY = 'XXXXXXXXXXXXXXXXXXX'
-
-sleep_time = 3600 * 30 #30 min

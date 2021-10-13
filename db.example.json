@@ -1,4 +1,9 @@
 {
+    "config": {
+        "api_key": "XXXXxxxxxxxXXXX",
+        "api_secret": "XXXXXXXXXXXxxxxxxxxxxxxxXXXXXXXXXXXX",
+        "sleep_time_sec": 108300
+    },
     "users": {
         "3118401337": {
             "username": "user-name",
