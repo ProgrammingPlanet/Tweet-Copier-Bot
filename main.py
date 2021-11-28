@@ -10,7 +10,8 @@ db = database.read()
 
 API_KEY = db['config']['api_key']
 API_SECRET_KEY = db['config']['api_secret']
-sleep_time = db['config']['sleep_time_sec']
+fetch_sleep_time = db['config']['sleep_time_sec']['fetch']
+post_sleep_time = db['config']['sleep_time_sec']['post']
 
 app = tweepy.OAuthHandler(API_KEY, API_SECRET_KEY)
 
@@ -31,6 +32,7 @@ def post_tweet():
 	try:
 		api, tweet_text = tweets_queue.pop(0) #first one
 		api.update_status(status=tweet_text)
+		time.sleep(post_sleep_time)
 	except Exception as e:
 		print(e)
 
@@ -52,6 +54,7 @@ def fetch_tweets():
 							tweets_queue.append((api, tweet.full_text))
 			db['users'][id]['copies'][target_id]['last_copy_tweeted_at'] = most_recent_tweet_time_gmt
 	database.write(db)
+	time.sleep(fetch_sleep_time)
 
 
 if '--signup' in argv:
