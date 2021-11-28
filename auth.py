@@ -33,7 +33,3 @@ def sign_in(app, users: dict, user_id: str):
         return
     app.set_access_token(access_token,access_token_secret)
     return app
-
-def post_tweet(api, text):
-    api.update_status(status=text)
-    print('bot tweeted: {}'.format(_text))

@@ -3,12 +3,14 @@ import time
 from random import random as rand
 from sys import argv
 
-from config import API_KEY, API_SECRET_KEY, sleep_time
-
 import database
 from auth import sign_up, sign_in
 
 db = database.read()
+
+API_KEY = db['config']['api_key']
+API_SECRET_KEY = db['config']['api_secret']
+sleep_time = db['config']['sleep_time_sec']
 
 app = tweepy.OAuthHandler(API_KEY, API_SECRET_KEY)
 
